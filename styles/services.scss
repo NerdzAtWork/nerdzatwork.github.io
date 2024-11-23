@@ -1,0 +1,97 @@
+@use 'colors.scss' as *;
+
+$border: 2px solid $primary;
+
+.services {
+	background-color: $background-secondary;
+	padding-bottom: 70px;
+
+	&-columns {
+		padding-top: 40px;
+		padding-bottom: 80px;
+		flex-wrap: wrap;
+
+		& > div {
+			border-right: $border;
+			padding: 0 30px;
+			box-sizing: border-box;
+
+			&:first-child {
+				flex: 0.8;
+				padding-left: 0;
+			}
+
+			&:nth-child(2) {
+				flex: 0.7;
+			}
+
+			&:last-child {
+				padding-right: 0;
+				border-right: none;
+			}
+
+			& > h2 {
+				margin-top: 0;
+			}
+		}
+
+		@media screen and (max-width: 600px) {
+			padding-bottom: 40px;
+		}
+
+		@media screen and (max-width: 900px) {
+			& > div {
+				&:first-child,
+				&:nth-child(2) {
+					flex: initial;
+					width: 50%;
+				}
+
+				&:nth-child(2) {
+					border-right: none;
+				}
+
+				&:last-child {
+					margin-top: 20px;
+					padding-top: 20px;
+					border-top: $border;
+					width: 100%;
+					padding-left: 0;
+					padding-right: 0;
+				}
+			}
+		}
+
+		@media screen and (max-width: 600px) {
+			& > div {
+				&:first-child {
+					width: 100%;
+					border-right: none;
+				}
+
+				&:nth-child(2) {
+					margin-top: 20px;
+					width: 100%;
+					border-top: $border;
+					padding-top: 20px;
+					padding-left: 0;
+					padding-right: 0;
+				}
+			}
+		}
+	}
+
+	&-message {
+		padding: 0px 120px;
+		text-align: center;
+
+		@media screen and (max-width: 600px) {
+			padding-left: 50px;
+			padding-right: 50px;
+		}
+	}
+
+	@media screen and (max-width: 600px) {
+		padding-bottom: 20px;
+	}
+}

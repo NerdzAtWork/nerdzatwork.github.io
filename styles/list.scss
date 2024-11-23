@@ -1,0 +1,96 @@
+@use 'colors.scss' as *;
+
+$image-size: 32px;
+$shadow: 0px 0px 12px black;
+
+@mixin gold {
+	color: $quaternary;
+	text-shadow: $shadow;
+}
+
+ul.list {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	position: relative;
+
+	& > li {
+		position: relative;
+		text-transform: uppercase;
+		font-size: 20px;
+		font-weight: bold;
+		color: $primary;
+		margin: 12px 0;
+		padding-top: 5px;
+		padding-bottom: 5px;
+		padding-left: 50px;
+
+		&::before {
+			content: '';
+			position: absolute;
+			top: 0;
+			left: 0;
+			display: block;
+			width: $image-size;
+			height: $image-size;
+			background-size: $image-size;
+			background-image: url(/images/icon.png);
+			background-repeat: no-repeat;
+		}
+
+		@media screen and (max-width: 800px) {
+			font-size: 18px;
+		}
+	}
+
+	&.gold {
+		& > li {
+			@include gold;
+
+			&::before {
+				filter: drop-shadow($shadow);
+			}
+		}
+	}
+
+	&.small {
+		& > li {
+			color: $secondary;
+			font-size: 18px;
+			margin: 5px 0;
+			padding-left: 30px;
+			min-height: initial;
+
+			&::before {
+				top: 10px;
+				background: none;
+				background-color: $secondary;
+				width: 10px;
+				height: 10px;
+				transform: rotate(45deg);
+			}
+
+			@media screen and (max-width: 800px) {
+				font-size: 16px;
+			}
+		}
+	}
+}
+
+.list-title {
+	margin: 0;
+	margin-bottom: 30px;
+	padding: 0;
+	text-transform: uppercase;
+	font-size: 20px;
+	font-weight: bold;
+	color: $primary;
+
+	&.gold {
+		@include gold;
+	}
+
+	@media screen and (max-width: 800px) {
+		font-size: 18px;
+	}
+}

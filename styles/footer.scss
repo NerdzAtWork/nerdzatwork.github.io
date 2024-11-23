@@ -1,0 +1,15 @@
+@use 'colors.scss' as *;
+
+.footer {
+	padding: 5px 0;
+	background-color: $secondary;
+	text-align: center;
+
+	& p {
+		margin: 0;
+		padding: 0;
+		color: white;
+		text-transform: uppercase;
+		font-size: 20px;
+	}
+}

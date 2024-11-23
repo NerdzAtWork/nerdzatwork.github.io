@@ -1,0 +1,88 @@
+@use 'colors.scss' as *;
+
+.about {
+	position: relative;
+
+	&::before {
+		content: '';
+		position: absolute;
+		top: 1px; // this hide top line
+		bottom: 0;
+		left: 0;
+		right: 50%;
+		background-color: $secondary;
+	}
+
+	& > .container {
+		display: flex;
+		background-color: $background-primary;
+	}
+
+	&-title {
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+		padding-top: 80px;
+		background-color: $secondary;
+		width: 290px;
+		position: relative;
+		padding-left: 20px;
+		left: -20px;
+
+		& > h1 {
+			color: white;
+		}
+
+		& > img {
+			width: 100%;
+		}
+	}
+
+	&-content {
+		flex: 1;
+		padding: 80px;
+		padding-left: 140px;
+
+		& > h2 {
+			margin-bottom: 100px;
+		}
+
+		& > p {
+			margin-bottom: 40px;
+
+			&:last-child {
+				margin-bottom: 0;
+			}
+		}
+
+		@media screen and (max-width: 600px) {
+			padding-top: 20px;
+			padding-bottom: 40px;
+
+			& > h2 {
+				margin-bottom: 60px;
+			}
+		}
+	}
+
+	@media screen and (max-width: 900px) {
+		&::before {
+			display: none;
+		}
+
+		&-title {
+			display: none;
+		}
+
+		&-content {
+			padding-left: 80px;
+		}
+	}
+
+	@media screen and (max-width: 600px) {
+		&-content {
+			padding-left: 20px;
+			padding-right: 20px;
+		}
+	}
+}

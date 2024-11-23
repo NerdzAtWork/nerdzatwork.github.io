@@ -1,0 +1,109 @@
+@use 'colors.scss' as *;
+
+.solutions {
+	position: relative;
+	padding-top: 100px;
+	background-color: dimgray;
+	background-image: url(/images/background-3.jpg);
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: center;
+
+	& > .container {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+	}
+
+	&-title {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		width: 100%;
+		padding: 0 40px;
+		box-sizing: border-box;
+
+		& > h2 {
+			margin: 0;
+			padding: 20px 10px;
+			color: white;
+			background-color: $primary;
+			text-align: center;
+			border-top-left-radius: 40px;
+			border-top-right-radius: 40px;
+			width: 100%;
+			max-width: 750px;
+		}
+	}
+
+	&-content {
+		background-color: $background-primary;
+		border-radius: 40px;
+		max-width: 900px;
+		padding: 45px;
+
+		table {
+			width: 100%;
+			border-collapse: collapse;
+			border: 1px solid $primary;
+
+			td,
+			th {
+				margin: 0;
+				padding: 10px;
+				vertical-align: top;
+				border: 1px solid $primary;
+				width: 50%;
+			}
+
+			td:first-child {
+				padding-left: 50px;
+
+				@media screen and (max-width: 600px) {
+					padding-left: 10px;
+				}
+			}
+
+			h3 {
+				margin: 0;
+				margin-top: 5px;
+				padding: 0;
+				color: $primary;
+			}
+
+			p {
+				margin: 0;
+				padding: 0;
+				line-height: 24px;
+			}
+		}
+
+		@media screen and (max-width: 600px) {
+			border-radius: 20px;
+			padding: 20px;
+		}
+	}
+
+	&-message {
+		margin: 0;
+		margin-top: 80px;
+		margin-bottom: 50px;
+		padding: 0;
+		color: white;
+		text-align: center;
+	}
+
+	&-footer {
+		height: 200px;
+		background-color: black;
+		background-image: url(/images/background-4.jpg);
+		background-repeat: no-repeat;
+		background-size: cover;
+		background-position: center;
+
+		@media screen and (max-width: 600px) {
+			height: 80px;
+		}
+	}
+}

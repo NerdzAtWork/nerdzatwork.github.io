@@ -1,0 +1,156 @@
+@use 'colors.scss' as *;
+
+.contact {
+	padding: 40px 0;
+	text-align: center;
+
+	& > .container {
+		& > *:first-child {
+			margin-top: 0;
+			padding-top: 0;
+		}
+	}
+
+	&-contacts {
+		& > span {
+			display: inline-block;
+			margin: 5px 0;
+			width: 280px;
+			text-align: initial;
+
+			&:first-child {
+				text-align: center;
+			}
+
+			& > img {
+				margin-right: 15px;
+			}
+
+			&:first-child > img {
+				transform: translateY(7px);
+			}
+
+			&:last-child > img {
+				transform: translateY(2px);
+			}
+		}
+	}
+
+	&-form {
+		display: flex;
+		flex-wrap: wrap;
+		margin: auto;
+		padding: 0 50px;
+		max-width: 900px;
+		text-align: left;
+
+		& > * {
+			margin: 20px 0;
+		}
+
+		.input,
+		.select,
+		.textarea,
+		.submit {
+			margin: auto;
+			padding: 5px 40px;
+			box-sizing: border-box;
+		}
+
+		.input {
+			width: 50%;
+
+			&.full-width {
+				width: 100%;
+			}
+		}
+
+		.select,
+		.textarea,
+		.submit {
+			width: 100%;
+		}
+
+		label {
+			display: block;
+			margin: 5px 0;
+			color: $input-text-primary;
+			font-size: 16px;
+		}
+
+		input,
+		select,
+		textarea {
+			display: block;
+			width: 100%;
+			box-sizing: border-box;
+			padding: 10px;
+			border: 1px solid $input-text-primary;
+			border-radius: 3px;
+			font-size: 16px;
+			color: $input-text-primary;
+			background-color: $background-primary;
+			outline: none;
+
+			&:focus {
+				border-color: $primary;
+			}
+
+			&::placeholder {
+				opacity: 0.75;
+			}
+		}
+
+		select {
+			appearance: none;
+			height: 42px;
+			background-image: linear-gradient(45deg, transparent 50%, gray 50%),
+				linear-gradient(135deg, gray 50%, transparent 50%);
+			background-position: calc(100% - 20px) calc(1em + 2px),
+				calc(100% - 15px) calc(1em + 2px), calc(100% - 2.5em) 0.5em;
+			background-size: 5px 5px, 5px 5px, 1px 1.5em;
+			background-repeat: no-repeat;
+		}
+
+		textarea {
+			resize: vertical;
+			min-height: 120px;
+		}
+
+		.submit {
+			margin-top: 30px;
+			text-align: center;
+
+			button {
+				border: none;
+				padding: 10px 40px;
+				color: white;
+				background-color: $primary;
+				font-size: 18px;
+				border-radius: 50px;
+				cursor: pointer;
+			}
+		}
+	}
+
+	@media screen and (max-width: 800px) {
+		&-form {
+			padding: 0;
+		}
+	}
+
+	@media screen and (max-width: 600px) {
+		.input,
+		.select,
+		.textarea,
+		.submit {
+			padding: 5px 10px;
+		}
+	}
+
+	@media screen and (max-width: 400px) {
+		.input {
+			width: 100%;
+		}
+	}
+}

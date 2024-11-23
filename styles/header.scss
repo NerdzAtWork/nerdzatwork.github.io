@@ -1,0 +1,62 @@
+@use 'colors.scss' as *;
+
+.header {
+	position: relative;
+	padding: 140px 0;
+	background-color: $tertiary;
+	background-image: url(/images/background-5.jpg);
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: center;
+	overflow: hidden;
+
+	&-transparentlogo {
+		&-left,
+		&-right {
+			position: absolute;
+			height: 120px;
+			top: calc(50% / 2);
+			pointer-events: none;
+		}
+
+		&-left {
+			left: 0;
+			transform: rotate(-90deg) translateY(-260px);
+		}
+
+		&-right {
+			right: 0;
+			transform: rotate(90deg) translateY(-260px);
+		}
+	}
+
+	&-logo {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+
+		& > img {
+			max-width: 70%;
+		}
+	}
+
+	@media screen and (max-width: 1280px) {
+		.container {
+			& > img {
+				display: none;
+			}
+		}
+	}
+
+	@media screen and (max-width: 800px) {
+		padding: 80px 0;
+
+		.columns {
+			flex-direction: column;
+		}
+
+		&-logo {
+			margin-bottom: 60px;
+		}
+	}
+}

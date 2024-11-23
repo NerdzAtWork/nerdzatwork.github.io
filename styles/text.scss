@@ -1,0 +1,19 @@
+@use 'colors.scss' as *;
+
+.text {
+	&-primary {
+		color: $primary;
+	}
+
+	&-secondary {
+		color: $secondary;
+	}
+
+	&-tertiary {
+		color: $tertiary;
+	}
+
+	&-quaternary {
+		color: $quaternary;
+	}
+}

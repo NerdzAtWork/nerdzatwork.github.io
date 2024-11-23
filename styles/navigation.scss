@@ -1,0 +1,136 @@
+@use 'colors.scss' as *;
+
+$height: 110px;
+$sidebar-width: 280px;
+$menuicon-size: 60px;
+
+.navigation {
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	margin: 0;
+	padding: 0;
+	height: $height;
+	background-color: $tertiary;
+	z-index: 1000;
+	transition: all 0.3s;
+
+	&::before {
+		content: '☰';
+		display: none;
+		color: white;
+		position: absolute;
+		width: $menuicon-size;
+		height: $menuicon-size;
+		background-color: $tertiary;
+		top: 0;
+		left: -$menuicon-size;
+		font-size: calc($menuicon-size * 0.35);
+		line-height: $menuicon-size;
+		text-align: center;
+		border-bottom-left-radius: 20px;
+	}
+
+	& + * {
+		margin-top: $height;
+	}
+
+	ul {
+		flex: 1;
+		margin: 0;
+		padding: 30px 0;
+		list-style: none;
+		align-content: center;
+
+		& > li {
+			display: inline-block;
+			margin: 0 15px;
+
+			&:first-child {
+				margin-left: 0;
+			}
+
+			& > a {
+				position: relative;
+				display: block;
+				padding-top: 32px;
+				font-size: 16px;
+				font-weight: bold;
+				text-transform: uppercase;
+				text-decoration: none;
+				color: white;
+
+				&::before {
+					content: '';
+					position: absolute;
+					display: block;
+					top: 0;
+					left: 0;
+					right: 0;
+					height: 7px;
+					background-color: transparent;
+				}
+
+				&:hover::before {
+					background-color: $quaternary;
+				}
+			}
+		}
+	}
+
+	& > div.container {
+		display: flex;
+		align-items: center;
+	}
+
+	@media screen and (max-width: 1000px) {
+		.container {
+			text-align: center;
+		}
+
+		ul {
+			padding: 20px 0;
+		}
+
+		&-logo {
+			display: none;
+		}
+	}
+
+	&.visible {
+		transform: translateX(0);
+	}
+
+	@media screen and (max-width: 800px) {
+		ul {
+			& > li {
+				margin-left: 5px;
+				margin-right: 5px;
+			}
+		}
+	}
+
+	@media screen and (max-width: 700px) {
+		width: $sidebar-width;
+		height: auto;
+		left: auto;
+		right: 0;
+		bottom: 0;
+		transform: translateX($sidebar-width);
+
+		&::before {
+			display: block;
+		}
+
+		& + * {
+			margin-top: initial;
+		}
+
+		ul {
+			& > li {
+				display: block;
+			}
+		}
+	}
+}
